@@ -6,7 +6,8 @@ import createSagaMiddleware from 'redux-saga'
 
 import reducer from '../reducers'
 import root from '../sagas/root'
-import PageComponent from './PageComponent'
+import PageComponent from './page-component'
+import LoginFormController from './greenLogin/login-form-controller'
 
 import '../resources/stylus/default.styl'
 
@@ -27,7 +28,8 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
-                        <Route path='/' component={PageComponent}/>
+                        <Route exact path='/' component={PageComponent}/>
+                        <Route path='/auth' component={LoginFormController}/>
                     </Switch>
                 </Router>
             </Provider>
