@@ -12,24 +12,11 @@ class SignUp extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        if (nextProps.status === false && !this.timer) {
-            this.timer = setInterval(() => {
-                this.setState({height: this.state.height - 10})
-                if (this.state.height <= 0) {
-                    clearInterval(this.timer)
-                    this.timer = null
-                }
-            }, 0)
+        if (nextProps.status === false && !this.timer && nextState.height !== 0) {
+            this.setState({height: 0})
         }
-
-        if (nextProps.status === true && !this.timer) {
-            this.timer = setInterval(() => {
-                this.setState({height: this.state.height + 10})
-                if (this.state.height >= 300) {
-                    clearInterval(this.timer)
-                    this.timer = null
-                }
-            }, 0)
+        if (nextProps.status === true && !this.timer && nextState.height === 0) {
+            this.setState({height: 270})
         }
     }
 

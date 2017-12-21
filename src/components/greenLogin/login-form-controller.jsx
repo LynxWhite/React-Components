@@ -8,7 +8,9 @@ class LoginFormController extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isSignIn: false
+            isSignIn: false,
+            signInHeight: 0,
+            signUpHeight: 0
         }
     }
 
