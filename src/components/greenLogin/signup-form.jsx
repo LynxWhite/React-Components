@@ -1,48 +1,32 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-class SignUp extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            height: 0
-        }
-        this.timer = null
+const SignUp = props => {
+    const hideThis = () => {
+        props.changeStatusForm(false)
     }
-
-    componentWillUpdate(nextProps, nextState) {
-        if (nextProps.status === false && !this.timer && nextState.height !== 0) {
-            this.setState({height: 0})
-        }
-        if (nextProps.status === true && !this.timer && nextState.height === 0) {
-            this.setState({height: 270})
-        }
+    const formSubmit = e => {
+        e.preventDefault()
+        console.log('Создание клиента')
     }
-
-    hideThis = () => {
-        this.props.changeStatusForm(false)
-    }
-
-    render() {
-        return (
-            <form className='register-form' style={{height: this.state.height + 'px'}}>
-                <input type='text' placeholder='Имя пользователя'/>
-                <input type='password' placeholder='пароль'/>
-                <input type='text' placeholder='email'/>
-                <button> Создать </button>
-                <p className='little-message'>
-                    <span> Уже зарегистрированы? </span>
-                    <Link to='/auth' onClick={this.hideThis}>Войти</Link>
-                </p>
-            </form>     
-        )
-    }
+    return (
+        <form className='register-form' style={{height: props.isVisible ? '270px' : '0px'}}>
+            <input type='text' placeholder='Имя пользователя'/>
+            <input type='password' placeholder='пароль'/>
+            <input type='text' placeholder='email'/>
+            <button onClick={formSubmit}> Создать </button>
+            <p className='little-message'>
+                <span> Уже зарегистрированы? </span>
+                <Link to='/auth' onClick={hideThis}>Войти</Link>
+            </p>
+        </form>     
+    )
 }
 
 SignUp.propTypes = {
-    status: PropTypes.bool,
-    changeStatusForm: PropTypes.func
+    changeStatusForm: PropTypes.func,
+    isVisible: PropTypes.bool
 }
 
 export default SignUp

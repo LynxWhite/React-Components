@@ -8,14 +8,12 @@ class LoginFormController extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isSignIn: false,
-            signInHeight: 0,
-            signUpHeight: 0
+            switchMode: false
         }
     }
 
     changeStatusForm = status => {
-        this.setState({isSignIn: status})
+        this.setState({switchMode: status})
     }
 
     render() {
@@ -23,8 +21,8 @@ class LoginFormController extends Component {
             <div className='login-wrapper'>
                 <div className='login-page' >
                     <div className='login-form-wrapper'>
-                        <SignUp status={this.state.isSignIn} changeStatusForm={this.changeStatusForm} />
-                        <SignIn status={this.state.isSignIn} changeStatusForm={this.changeStatusForm} />
+                        <SignUp changeStatusForm={this.changeStatusForm} isVisible={this.state.switchMode} />
+                        <SignIn changeStatusForm={this.changeStatusForm} isVisible={!this.state.switchMode} />
                     </div>
                 </div>
                 <BubblesBG/>
