@@ -6,8 +6,10 @@ import createSagaMiddleware from 'redux-saga'
 
 import reducer from '../reducers'
 import root from '../sagas/root'
+
 import PageComponent from './page-component'
 import LoginFormController from './greenLogin/login-form-controller'
+import AnimatedBGPage from './animatedBGPage/page-wrapper'
 
 import '../resources/stylus/default.styl'
 
@@ -28,8 +30,9 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
-                        <Route exact path='/' component={PageComponent}/>
-                        <Route path='/auth' component={LoginFormController}/>
+                        <Route exact path='/' component = {PageComponent} />
+                        <Route exact path='/auth' component = {LoginFormController} />
+                        <Route exact path='/animatedBG' component = {AnimatedBGPage} />
                     </Switch>
                 </Router>
             </Provider>

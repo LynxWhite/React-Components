@@ -1,0 +1,21 @@
+.icon
+    text-decoration none
+    position relative
+
+    &:before
+        font-family FontAwesome
+        font-style normal
+        font-weight normal
+        text-transform none !important
+
+    >.label
+        display none
+
+@keyframes nav-icons
+    0%
+        transform translate3d(0,1em,0)
+        opacity 0
+
+    100%
+        transform translate3d(0,0,0)
+        opacity 1

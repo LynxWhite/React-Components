@@ -1,0 +1,112 @@
+$color-1 = #fff
+$color-3 = rgba(255, 255, 255, 0.175)
+$color-4 = rgba(255, 255, 255, 0.35)
+@require 'icon'
+@keyframes header
+    0%
+        transform translate3d(0,1em,0)
+        opacity 0
+
+    100%
+        transform translate3d(0,0,0)
+        opacity 1
+
+#header
+    animation header 1s 2.25s forwards
+    backface-visibility hidden
+    transform translate3d(0,0,0)
+    cursor default
+    display inline-block
+    opacity 0
+    position relative
+    text-align center
+    top -1em
+    vertical-align middle
+    width 90%
+
+    h1
+        font-size 4.35em
+        font-weight 900
+        letter-spacing -0.035em
+        line-height 1em
+
+    p
+        font-size 1.25em
+        margin 0.75em 0 0.25em 0
+        opacity 0.75
+
+    nav
+        margin 1.5em 0 0 0
+
+        li
+            animation nav-icons 0.5s ease-in-out forwards
+            backface-visibility hidden
+            transform translate3d(0,0,0)
+            display inline-block
+            height 5.35em
+            line-height 5.885em
+            opacity 0
+            position relative
+            top 0
+            width 5.35em
+            for child in (1..10)
+                &:nth-child({child})
+                    animation-delay: (2.25 + 0.25 * child)s
+
+        a
+            border 0
+            display inline-block
+
+            &:before
+                transition all 0.2s ease-in-out
+                border-radius 100%
+                border solid 1px $color-1
+                display block
+                font-size 1.75em
+                height 2.5em
+                line-height 2.5em
+                position relative
+                text-align center
+                top 0
+                width 2.5em
+
+            &:hover
+                font-size 1.1em
+
+                &:before
+                    background-color $color-3
+                    color $color-1
+
+            &:active
+                font-size 0.95em
+                background none
+
+                &:before
+                    background-color $color-4
+                    color $color-1
+
+            span
+                display none
+
+@media screen and (max-width: 736px)
+    #header
+        h1
+            font-size 2.5em
+
+        p
+            font-size 1em
+
+        nav
+            font-size 1em
+
+            a
+                &:hover
+                    font-size 1em
+
+                &:active
+                    font-size 1em
+
+@media screen and (max-width: 480px)
+    #header
+        nav
+            padding 0 1em

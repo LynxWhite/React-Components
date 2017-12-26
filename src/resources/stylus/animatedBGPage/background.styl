@@ -1,0 +1,90 @@
+// Картинку подменять здесь
+#bg
+    animation bg 60s linear infinite
+    backface-visibility hidden
+    transform translate3d(0,0,0)
+    background $color-2 url("../../images/bg.jpg") bottom left
+    background-repeat repeat-x
+    height 100%
+    left 0
+    opacity 1
+    position fixed
+    top 0
+    background-size 2250px auto
+    width 6750px
+
+@keyframes bg
+    0%
+        transform translate3d(0,0,0)
+
+    100%
+        transform translate3d(-2250px,0,0)
+
+@media screen and (max-width: 1680px)
+    @keyframes bg
+        0%
+            transform translate3d(0,0,0)
+
+        100%
+            transform translate3d(-1500px,0,0)
+
+    #bg
+        background-size 1500px auto
+        width 4500px
+
+@media screen and (max-width: 1280px)
+    @keyframes bg
+        0%
+            transform translate3d(0,0,0)
+
+        100%
+            transform translate3d(-750px,0,0)
+
+    #bg
+        background-size 750px auto
+        width 2250px
+
+@media screen and (max-width: 736px)
+    @keyframes bg
+        0%
+            transform translate3d(0,0,0)
+
+        100%
+            transform translate3d(-300px,0,0)
+
+    #bg
+        background-size 300px auto
+        width 900px
+
+@media screen and (max-width: 480px)
+    @keyframes bg
+        0%
+            transform translate3d(0,0,0)
+
+        100%
+            transform translate3d(-412.5px,0,0)
+
+    #bg
+        background-size 412.5px auto
+        width 1237.5px
+
+@keyframes overlay
+    0%
+        opacity 0
+
+    100%
+        opacity 1
+
+#overlay
+    animation overlay 1.5s 1.5s forwards
+    background-attachment fixed, fixed
+    background-image url("../../images/overlay-pattern.png"), url("../../images/overlay.svg")
+    background-position top left, center center
+    background-repeat repeat, no-repeat
+    background-size auto, cover
+    height 100%
+    left 0
+    opacity 0
+    position fixed
+    top 0
+    width 100%
